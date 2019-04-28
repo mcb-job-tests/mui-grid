@@ -1,24 +1,58 @@
 import React from 'react';
-import logo from './logo.svg';
+import Grid from '@material-ui/core/Grid';
+import { createMuiTheme, MuiThemeProvider } from '@material-ui/core'
+
 import './App.css';
 
 function App() {
+
+  const breakpointValues = {
+    xs: 0,
+    sm: 400,
+    md: 600,
+    lg: 800,
+    xl: 1200,
+  };
+  const theme = createMuiTheme({ breakpoints: { values: breakpointValues } });
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <MuiThemeProvider theme={theme}>
+        <Grid container spacing={24}>
+          <Grid item xs={12}>
+            <div className='box'><p>xs=12</p></div>
+          </Grid>
+          <Grid container item xs={12} sm={6}>
+            <Grid className='container' item xs={6} sm={6} md={3}>
+              <div className='box sm-box'><p>xs=6 sm=6 md={3}</p></div>
+            </Grid>
+            <Grid className='container' item xs={6} sm={6} md={3}>
+              <div className='box sm-box'><p>xs=6 sm=3 md={3}</p></div>
+            </Grid>
+            <Grid className='container' item xs={6} sm={6} md={3}>
+              <div className='box sm-box'><p>xs=6 sm=3 md={3}</p></div>
+            </Grid>
+            <Grid className='container' item xs={6} sm={6} md={3}>
+              <div className='box sm-box'><p>xs=6 sm=3 md={3}</p></div>
+            </Grid>
+          </Grid>
+          <Grid item xs={12} sm={6}>
+            <div className='box'><p>xs=12 sm=6</p></div>
+          </Grid>
+          <Grid item xs={12} sm={6} md={3}>
+            <div className='box'><p>xs=12 sm=6 md=3</p></div>
+          </Grid>
+          <Grid item xs={12} sm={6} md={3}>
+            <div className='box'><p>xs=12 sm=6 md=3</p></div>
+          </Grid>
+          <Grid item xs={12} sm={6} md={3}>
+            <div className='box'><p>xs=12 sm=6 md=3</p></div>
+          </Grid>
+          <Grid item xs={12} sm={6} md={3}>
+            <div className='box'><p>xs=12 sm=6 md=3</p></div>
+          </Grid>
+        </Grid>
+      </MuiThemeProvider>
     </div>
   );
 }
