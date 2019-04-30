@@ -18,51 +18,44 @@ function App() {
   return (
     <div className="App">
       <MuiThemeProvider theme={theme}>
-        <Grid container spacing={8}>
-          <Grid item xs={12} md={6}>
-            <div className='box setting-up'><p>Setting up</p></div>
-          </Grid>
-          <Grid container item xm={12} sm={12} md={6}>
-            <Grid item xs={12}>
-              <div className='box operations'><p>Operations</p></div>
+
+        <Grid container xs={12} justify={'flex-start'} alignItems={'flex-start'}>
+          {/*First Column*/}
+            <Grid container xs={12} md={6} direction={"column"}>
+              <Grid container xs >
+                <Grid item xs={12} className='box setting-up'>
+                  <div ><p>Setting up</p></div>
+                </Grid>
+                <Grid item xs={12} className='box setting-up'>
+                  <div ><p>Staff</p></div>
+                </Grid>
+              </Grid>
             </Grid>
-            <Grid item xs={12} sm={6} md={6}>
-              <div className='box'><p>IMAGE</p></div>
+
+          <Grid container xs={12} md={6} direction={"column"} >
+            <Grid container xs={12} >
+                <Grid item xs={12} className='box operations' >
+                  <div ><p>Operations</p></div>
+                </Grid>
+                <Grid item xs={12} className='box selling-a-business'>
+                  <div ><p>Selling a Business</p></div>
+                </Grid>
             </Grid>
-            <Grid item xs={12} sm={6} md={6}>
-              <div className='box'><p>Selling a business</p></div>
-            </Grid>
-          </Grid>
-          <Grid container item xs={12} sm={6}>
-            <Grid className='container' item xs={6} sm={6} md={3}>
-              <div className='box sm-box'><p>xs=6 sm=6 md={3}</p></div>
-            </Grid>
-            <Grid className='container' item xs={6} sm={6} md={3}>
-              <div className='box sm-box'><p>xs=6 sm=3 md={3}</p></div>
-            </Grid>
-            <Grid className='container' item xs={6} sm={6} md={3}>
-              <div className='box sm-box'><p>xs=6 sm=3 md={3}</p></div>
-            </Grid>
-            <Grid className='container' item xs={6} sm={6} md={3}>
-              <div className='box sm-box'><p>xs=6 sm=3 md={3}</p></div>
-            </Grid>
-          </Grid>
-          <Grid item xs={12} sm={6}>
-            <div className='box'><p>xs=12 sm=6</p></div>
-          </Grid>
-          <Grid item xs={12} sm={6} md={3}>
-            <div className='box'><p>xs=12 sm=6 md=3</p></div>
-          </Grid>
-          <Grid item xs={12} sm={6} md={3}>
-            <div className='box'><p>xs=12 sm=6 md=3</p></div>
-          </Grid>
-          <Grid item xs={12} sm={6} md={3}>
-            <div className='box'><p>xs=12 sm=6 md=3</p></div>
-          </Grid>
-          <Grid item xs={12} sm={6} md={3}>
-            <div className='box'><p>xs=12 sm=6 md=3</p></div>
           </Grid>
         </Grid>
+          {/*Second Column*/}
+          {/*<Grid container xs={12} md={6} direction={"column"} className={"border"}>
+            <Grid item container direction={"row"} xs={12} className={"border"}>
+              <Grid item  xs={12} className='box operations border'>
+                <div ><p>Operations</p></div>
+              </Grid>
+              <Grid item direction={"row"} xs={12} className={"box selling-a-business border"}>
+                <div><p>Selling a business</p></div>
+              </Grid>
+            </Grid>
+          </Grid>*/}
+
+
       </MuiThemeProvider>
     </div>
   );

@@ -3,17 +3,18 @@
 }
 
 .container {
-  padding: 3px;
   border: 1px solid darkblue;
+}
+
+.second-col {
+  height: 300px;
 }
 
 .box, .sm-box {
   border: 1px solid dodgerblue;
   background-color: lightgreen;
-  height:50px;
-  margin:4px;
   text-align: center;
-  font-size: 0.7rem;
+  font-size: 1rem;
 }
 
 .sm-box {
@@ -25,5 +26,17 @@
 }
 
 .operations {
-  height:100px;
+  height:120px;
+}
+
+.selling-a-business {
+  height:140px;
+}
+
+.image {
+  height: 120px;
+}
+
+.border {
+  border: 2px solid rebeccapurple;
 }
