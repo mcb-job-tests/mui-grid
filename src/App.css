@@ -11,10 +11,19 @@
   border: 1px solid dodgerblue;
   background-color: lightgreen;
   height:50px;
+  margin:4px;
   text-align: center;
   font-size: 0.7rem;
 }
 
 .sm-box {
   background-color: aquamarine;
+}
+
+.setting-up {
+  height:200px;
+}
+
+.operations {
+  height:100px;
 }

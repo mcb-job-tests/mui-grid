@@ -18,9 +18,20 @@ function App() {
   return (
     <div className="App">
       <MuiThemeProvider theme={theme}>
-        <Grid container spacing={24}>
-          <Grid item xs={12}>
-            <div className='box'><p>xs=12</p></div>
+        <Grid container spacing={8}>
+          <Grid item xs={12} md={6}>
+            <div className='box setting-up'><p>Setting up</p></div>
+          </Grid>
+          <Grid container item xm={12} sm={12} md={6}>
+            <Grid item xs={12}>
+              <div className='box operations'><p>Operations</p></div>
+            </Grid>
+            <Grid item xs={12} sm={6} md={6}>
+              <div className='box'><p>IMAGE</p></div>
+            </Grid>
+            <Grid item xs={12} sm={6} md={6}>
+              <div className='box'><p>Selling a business</p></div>
+            </Grid>
           </Grid>
           <Grid container item xs={12} sm={6}>
             <Grid className='container' item xs={6} sm={6} md={3}>
