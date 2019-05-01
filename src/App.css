@@ -1,5 +1,4 @@
 .App {
-  margin:24px;
 }
 
 .container {
@@ -11,7 +10,7 @@
 }
 
 .box, .sm-box {
-  border: 1px solid dodgerblue;
+  border: 2px solid red;
   background-color: lightgreen;
   text-align: center;
   font-size: 1rem;
@@ -21,22 +20,84 @@
   background-color: aquamarine;
 }
 
+.setting-up, .staff {
+  height:190px;
+}
+
 .setting-up {
-  height:200px;
+  color: black;
+  background-color: white;
+}
+
+.staff {
+  color: white;
+  background-color: black;
 }
 
 .operations {
-  height:120px;
-}
-
-.selling-a-business {
+  color: white;
+  background-color: lightseagreen;
   height:140px;
 }
 
-.image {
+.selling-a-business, .image-1, .dealing-with-disputes {
+  height:150px;
+}
+
+.selling-a-business, .dealing-with-disputes {
+  color: black;
+  background-color: white;
+}
+
+.trading {
   height: 120px;
+  color: white;
+  background-color: darkblue;
+}
+
+.image-1 {
+  background-color: aquamarine;
+}
+
+.image-2 {
+  height: 180px;
+  background-color: aquamarine;
+}
+
+.bottom-row {
+  border: 2px solid darkblue;
+}
+
+.directors, .company-admin, .finance {
+  height : 130px;
+}
+
+.company-admin {
+  background-color: black;
+  color: white;
+}
+
+.directors {
+  color: black;
+  background-color: white;
+}
+
+.finance {
+  color: white;
+  background-color: lightseagreen;
+}
+
+@media only screen and (max-width: 600px) {
+  [class*="image"] {
+    display: none;
+  }
 }
 
 .border {
   border: 2px solid rebeccapurple;
+}
+
+.item-wrapper {
+  margin:4px;
+  width:100%;
 }
