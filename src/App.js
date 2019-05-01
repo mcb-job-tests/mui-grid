@@ -1,8 +1,39 @@
-import React from 'react';
-import Grid from '@material-ui/core/Grid';
+import React, {Fragment} from 'react';
 import { createMuiTheme, MuiThemeProvider } from '@material-ui/core'
+import Grid from '@material-ui/core/Grid';
+import ExpansionPanel from '@material-ui/core/ExpansionPanel';
+import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
+import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
+import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+import Typography from '@material-ui/core/Typography';
 
 import './App.css';
+
+const ExpandablePanel = (props) => {
+  const {title, content} = props;
+  return (
+    <Fragment>
+      <div className={'hidden-on-mobile'}>
+        <h4>
+          {title}
+        </h4>
+        <p>
+          {content}
+        </p>
+      </div>
+      <ExpansionPanel className={'hidden-on-desktop'}>
+      <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
+        <Typography >{title}</Typography>
+      </ExpansionPanelSummary>
+      <ExpansionPanelDetails>
+        <Typography>
+          {content}
+        </Typography>
+      </ExpansionPanelDetails>
+      </ExpansionPanel>
+    </Fragment>
+  )
+}
 
 function App() {
 
@@ -15,6 +46,9 @@ function App() {
   };
   const theme = createMuiTheme({ breakpoints: { values: breakpointValues } });
 
+  const content = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex,\n' +
+    '            sit amet blandit leo lobortis eget. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex,\n' +
+    '            sit amet blandit leo lobortis eget.'
   return (
     <div className="App">
       <MuiThemeProvider theme={theme}>
@@ -27,18 +61,18 @@ function App() {
 
                 <div className={'item-wrapper'}>
                   <Grid item xs={12} className='box setting-up'>
-                    <div><p>Setting up</p></div>
+                    <ExpandablePanel title={'Setting Up'} content={content + content}/>
                   </Grid>
                 </div>
 
-                <div className={'item-wrapper'}>
-                  <Grid item xs={12} className='box staff'>
-                    <div><p>Staff</p></div>
+                <div className={'item-wrapper staff'}>
+                  <Grid item xs={12} className='box'>
+                    <ExpandablePanel title={'Staff'} content={content}/>
                   </Grid>
                 </div>
 
-                <div className={'item-wrapper'}>
-                  <Grid item xs={12} className='box image-2'>
+                <div className={'item-wrapper hidden-on-mobile image-2'}>
+                  <Grid item xs={12} className='box'>
                     <div><p>IMAGE 2</p></div>
                   </Grid>
                 </div>
@@ -49,15 +83,15 @@ function App() {
             <Grid item xs={12} md={6}>
               <Grid container spacing={8}>
 
-                <div className={'item-wrapper'}>
-                  <Grid item xs={12} className='box operations' >
+                <div className={'item-wrapper operations'}>
+                  <Grid item xs={12} className='box' >
                     <div ><p>Operations</p></div>
                   </Grid>
                 </div>
 
-                <div className={'item-wrapper'}>
+                <div className={'item-wrapper hidden-on-mobile image-1'}>
                   <Grid container>
-                    <Grid item xs={12} md={6} className='box image-1'>
+                    <Grid item xs={12} md={6} className='box'>
                         <div ><p>IMAGE 1</p></div>
                     </Grid>
 
@@ -67,14 +101,14 @@ function App() {
                   </Grid>
                 </div>
 
-                <div className={'item-wrapper'}>
-                  <Grid item xs={12} className='box dealing-with-disputes' >
+                <div className={'item-wrapper dealing-with-disputes'}>
+                  <Grid item xs={12} className='box' >
                     <div ><p>Dealing with disputes</p></div>
                   </Grid>
                 </div>
 
-                <div className={'item-wrapper'}>
-                  <Grid item xs={12} className='box trading' >
+                <div className={'item-wrapper trading'}>
+                  <Grid item xs={12} className='box' >
                     <div><p>Trading</p></div>
                   </Grid>
                 </div>

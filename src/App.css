@@ -10,8 +10,6 @@
 }
 
 .box, .sm-box {
-  border: 2px solid red;
-  background-color: lightgreen;
   text-align: center;
   font-size: 1rem;
 }
@@ -21,7 +19,7 @@
 }
 
 .setting-up, .staff {
-  height:190px;
+  /*height:190px;*/
 }
 
 .setting-up {
@@ -93,11 +91,32 @@
   }
 }
 
+
 .border {
   border: 2px solid rebeccapurple;
 }
 
 .item-wrapper {
+  border: 3px solid purple;
+  border-radius: 10px;
+  background-clip: padding-box;
   margin:4px;
   width:100%;
+  z-index: 10;
+}
+
+.expandable-panel {
+
+}
+
+@media only screen and (min-width: 600px) {
+  [class*="hidden-on-desktop"] {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  [class*="hidden-on-mobile"] {
+    display: none;
+  }
 }
