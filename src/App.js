@@ -18,6 +18,7 @@ import FinanceIcon from './Icons/48px/Finance/black.png'
 import CompanyAdminIcon from './Icons/48px/Admin/black.png'
 
 const panelStyle ={
+  position: 'static',
   borderRadius: "10px",
   WebkitBoxShadow: "0px 0px 3px 2px rgba(0,0,0,0.4)",
   MozBoxShadow: "0px 0px 3px 2px rgba(0,0,0,0.4)",
