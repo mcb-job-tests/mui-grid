@@ -1,5 +1,6 @@
 import React, {Fragment} from 'react';
 import { createMuiTheme, MuiThemeProvider } from '@material-ui/core'
+import './App.css';
 import Grid from '@material-ui/core/Grid';
 import ExpansionPanel from '@material-ui/core/ExpansionPanel';
 import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
@@ -7,38 +8,64 @@ import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import Typography from '@material-ui/core/Typography';
 import { withStyles } from '@material-ui/core/styles'
-import staffIcon from "./Icons/48px/Staff/black.png"
+import staffIcon from './Icons/48px/Staff/black.png'
+import OperationsIcon from './Icons/48px/Operations/black.png'
+import SettingUpIcon from './Icons/48px/Setting up/spanners.png'
+import DealingWithDisputesIcon from './Icons/48px/Disputes/black.png'
+import TradingIcon from './Icons/48px/Trading/black.png'
+import DirectorsIcon from './Icons/48px/Directors/black.png'
+import FinanceIcon from './Icons/48px/Finance/black.png'
+import CompanyAdminIcon from './Icons/48px/Admin/black.png'
 
+const panelStyle ={
+  borderRadius: "10px",
+  WebkitBoxShadow: "0px 0px 3px 2px rgba(0,0,0,0.4)",
+  MozBoxShadow: "0px 0px 3px 2px rgba(0,0,0,0.4)",
+  boxShadow: "0px 0px 3px 2px rgba(0,0,0,0.4)",
+  margin: "4px",
+  width:"100%",
+}
 
-import './App.css';
 
 const ExpansionPanelStyle = withStyles({
-  root: {
-    border: '3px solid purple',
-    borderRadius: 10
-  },
+  root: panelStyle,
 })(ExpansionPanel);
+
+const PanelHeader = ({icon, title}) => {
+  return(
+    <div className={'panel-header-icon'}>
+      { typeof icon !== "undefined" ? <img  style={{padding:10}} src={icon} alt="Topic Icon" /> : null}
+      <div style={{padding:"20px"}}>
+        <Typography variant={'title'}>
+          {title}
+        </Typography>
+      </div>
+    </div>
+  )
+}
 
 const ExpandablePanel = (props) => {
   const {icon, title, content} = props;
-  console.log("icon", icon)
   return (
     <Fragment>
-      <div className={'hidden-on-mobile'}>
-        <h3>
-          {title}
-        </h3>
-        <p>
+      <div className={'hidden-on-mobile item-wrapper'} >
+        <PanelHeader icon={icon} title={title}/>
+        <p style={{padding: '0 10px 10px 10px'}}>
           {content}
         </p>
+
       </div>
       <ExpansionPanelStyle
         className={'hidden-on-desktop'}
         square={true}
       >
         <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
-          { typeof icon !== "undefined" ? <img src={icon} alt="Staff Icon" /> : null}
-          <Typography variant={"h5"}>{title}</Typography>
+          <div>
+            { typeof icon !== "undefined" ? <img style={{paddingLeft:10, paddingRight:10}} src={icon} alt="Topic Icon" /> : null}
+          </div>
+          <div >
+            <Typography variant={"h5"}>{title}</Typography>
+          </div>
         </ExpansionPanelSummary>
         <ExpansionPanelDetails>
           <Typography>
@@ -59,7 +86,9 @@ function App() {
     lg: 800,
     xl: 1200,
   };
-  const theme = createMuiTheme({ breakpoints: { values: breakpointValues } });
+  const theme = createMuiTheme({
+    breakpoints: { values: breakpointValues },
+  });
 
   const content = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex,\n' +
     '            sit amet blandit leo lobortis eget. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex,\n' +
@@ -67,24 +96,22 @@ function App() {
   return (
     <div className="App">
       <MuiThemeProvider theme={theme}>
-        <div style={{margin:8}}>
+
+
+        <div style={{margin:"16px"}}>
           <Grid container spacing={8}>
 
             {/*First Column*/}
             <Grid item xs={12} md={6}>
               <Grid container spacing={8}>
 
-                <div className={'item-wrapper expandable'}>
                   <Grid item xs={12} className='box'>
-                    <ExpandablePanel title={'Setting Up'} content={content + content}/>
+                    <ExpandablePanel title={'Setting Up'} icon={SettingUpIcon} content={content + content}/>
                   </Grid>
-                </div>
 
-                <div className={'item-wrapper expandable'}>
                   <Grid item xs={12} className='box'>
-                    <ExpandablePanel icon={staffIcon} title={'Staff'} content={content}/>
+                    <ExpandablePanel title={'Staff'} icon={staffIcon} content={content}/>
                   </Grid>
-                </div>
 
                 <div className={'item-wrapper hidden-on-mobile image-2'}>
                   <Grid item xs={12} className='box'>
@@ -98,14 +125,12 @@ function App() {
             <Grid item xs={12} md={6}>
               <Grid container spacing={8}>
 
-                <div className={'item-wrapper expandable'}>
                   <Grid item xs={12} className='box' >
-                    <ExpandablePanel title={'Operations'} content={content + content}/>
+                    <ExpandablePanel title={'Operations'} icon={OperationsIcon} content={content + content}/>
                   </Grid>
-                </div>
 
                 <div className={'item-wrapper hidden-on-mobile image-1'}>
-                  <Grid container>
+                  <Grid container spacing={8}>
                     <Grid item xs={12} md={6} className='box'>
                         <div ><p>IMAGE 1</p></div>
                     </Grid>
@@ -116,38 +141,38 @@ function App() {
                   </Grid>
                 </div>
 
-                <div className={'item-wrapper expandable'}>
                   <Grid item xs={12} className='box' >
-                    <ExpandablePanel title={'Dealing with disputes'} content={content}/>
+                    <ExpandablePanel title={'Dealing with disputes'} icon={DealingWithDisputesIcon} content={content}/>
                   </Grid>
-                </div>
 
-                <div className={'item-wrapper expandable'}>
                   <Grid item xs={12} className='box' >
-                    <ExpandablePanel title={'Trading'} content={content}/>
+                    <ExpandablePanel title={'Trading'} icon={TradingIcon} content={content}/>
                   </Grid>
-                </div>
 
               </Grid>
             </Grid>
+          </Grid>
 
-            {/*Bottom Row*/}
-            <Grid item xs={12} className='bottom-row' >
-              <Grid container>
-                <Grid item xs={12} md={4} className='box company-admin'>
-                  <div><p>Company admin</p></div>
+          {/*Bottom Row*/}
+          <Grid container direction='column' spacing={8}>
+            <Grid item >
+              <Grid container direction='row' spacing={8}>
+                <Grid item xs={12} md={4} className='box'>
+                  <ExpandablePanel title={'Company admin'} icon={CompanyAdminIcon} content={content}/>
                 </Grid>
-                <Grid item xs={12} md={4} className='box directors'>
-                  <div><p>Directors</p></div>
+                <Grid item xs={12} md={4} className='box'>
+                  <ExpandablePanel title={'Directors'} icon={DirectorsIcon} content={content}/>
                 </Grid>
-                <Grid item xs={12} md={4} className='box finance'>
-                  <div><p>Finance</p></div>
+                <Grid item xs={12} md={4} className='box'>
+                  <ExpandablePanel title={'Finance'} icon={FinanceIcon} content={content}/>
                 </Grid>
               </Grid>
             </Grid>
           </Grid>
 
         </div>
+
+
       </MuiThemeProvider>
     </div>
   );
