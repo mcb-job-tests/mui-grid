@@ -74,13 +74,13 @@ function App() {
             <Grid item xs={12} md={6}>
               <Grid container spacing={8}>
 
-                <div className={'item-wrapper setting-up expandable'}>
+                <div className={'item-wrapper expandable'}>
                   <Grid item xs={12} className='box'>
                     <ExpandablePanel title={'Setting Up'} content={content + content}/>
                   </Grid>
                 </div>
 
-                <div className={'item-wrapper staff expandable'}>
+                <div className={'item-wrapper expandable'}>
                   <Grid item xs={12} className='box'>
                     <ExpandablePanel icon={staffIcon} title={'Staff'} content={content}/>
                   </Grid>
@@ -98,9 +98,9 @@ function App() {
             <Grid item xs={12} md={6}>
               <Grid container spacing={8}>
 
-                <div className={'item-wrapper operations'}>
+                <div className={'item-wrapper expandable'}>
                   <Grid item xs={12} className='box' >
-                    <div ><p>Operations</p></div>
+                    <ExpandablePanel title={'Operations'} content={content + content}/>
                   </Grid>
                 </div>
 
@@ -110,21 +110,21 @@ function App() {
                         <div ><p>IMAGE 1</p></div>
                     </Grid>
 
-                    <Grid item xs={12} md={6} className='box selling-a-business'>
+                    <Grid item xs={12} md={6} className='box'>
                       <div ><p>Selling a Business</p></div>
                     </Grid>
                   </Grid>
                 </div>
 
-                <div className={'item-wrapper dealing-with-disputes'}>
+                <div className={'item-wrapper expandable'}>
                   <Grid item xs={12} className='box' >
-                    <div ><p>Dealing with disputes</p></div>
+                    <ExpandablePanel title={'Dealing with disputes'} content={content}/>
                   </Grid>
                 </div>
 
-                <div className={'item-wrapper trading'}>
+                <div className={'item-wrapper expandable'}>
                   <Grid item xs={12} className='box' >
-                    <div><p>Trading</p></div>
+                    <ExpandablePanel title={'Trading'} content={content}/>
                   </Grid>
                 </div>
 

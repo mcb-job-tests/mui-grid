@@ -18,26 +18,6 @@
   background-color: aquamarine;
 }
 
-.setting-up, .staff {
-  /*height:190px;*/
-}
-
-.setting-up {
-  color: black;
-  background-color: white;
-}
-
-.staff {
-  color: white;
-  background-color: black;
-}
-
-.operations {
-  color: white;
-  background-color: lightseagreen;
-  height:140px;
-}
-
 .selling-a-business, .image-1, .dealing-with-disputes {
   height:150px;
 }
@@ -45,12 +25,6 @@
 .selling-a-business, .dealing-with-disputes {
   color: black;
   background-color: white;
-}
-
-.trading {
-  height: 120px;
-  color: white;
-  background-color: darkblue;
 }
 
 .image-1 {
@@ -66,24 +40,6 @@
   border: 2px solid darkblue;
 }
 
-.directors, .company-admin, .finance {
-  height : 130px;
-}
-
-.company-admin {
-  background-color: black;
-  color: white;
-}
-
-.directors {
-  color: black;
-  background-color: white;
-}
-
-.finance {
-  color: white;
-  background-color: lightseagreen;
-}
 
 @media only screen and (max-width: 600px) {
   [class*="image"] {
