@@ -99,19 +99,19 @@
 .item-wrapper {
   border: 3px solid purple;
   border-radius: 10px;
-  background-clip: padding-box;
   margin:4px;
   width:100%;
-  z-index: 10;
-}
-
-.expandable-panel {
-
 }
 
 @media only screen and (min-width: 600px) {
   [class*="hidden-on-desktop"] {
     display: none;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  [class*="expandable"] {
+    border: none;
   }
 }
 

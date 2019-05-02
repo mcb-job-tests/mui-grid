@@ -6,31 +6,46 @@ import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
 import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import Typography from '@material-ui/core/Typography';
+import { withStyles } from '@material-ui/core/styles'
+import staffIcon from "./Icons/48px/Staff/black.png"
+
 
 import './App.css';
 
+const ExpansionPanelStyle = withStyles({
+  root: {
+    border: '3px solid purple',
+    borderRadius: 10
+  },
+})(ExpansionPanel);
+
 const ExpandablePanel = (props) => {
-  const {title, content} = props;
+  const {icon, title, content} = props;
+  console.log("icon", icon)
   return (
     <Fragment>
       <div className={'hidden-on-mobile'}>
-        <h4>
+        <h3>
           {title}
-        </h4>
+        </h3>
         <p>
           {content}
         </p>
       </div>
-      <ExpansionPanel className={'hidden-on-desktop'}>
-      <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
-        <Typography >{title}</Typography>
-      </ExpansionPanelSummary>
-      <ExpansionPanelDetails>
-        <Typography>
-          {content}
-        </Typography>
-      </ExpansionPanelDetails>
-      </ExpansionPanel>
+      <ExpansionPanelStyle
+        className={'hidden-on-desktop'}
+        square={true}
+      >
+        <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
+          { typeof icon !== "undefined" ? <img src={icon} alt="Staff Icon" /> : null}
+          <Typography variant={"h5"}>{title}</Typography>
+        </ExpansionPanelSummary>
+        <ExpansionPanelDetails>
+          <Typography>
+            {content}
+          </Typography>
+        </ExpansionPanelDetails>
+      </ExpansionPanelStyle>
     </Fragment>
   )
 }
@@ -59,15 +74,15 @@ function App() {
             <Grid item xs={12} md={6}>
               <Grid container spacing={8}>
 
-                <div className={'item-wrapper'}>
-                  <Grid item xs={12} className='box setting-up'>
+                <div className={'item-wrapper setting-up expandable'}>
+                  <Grid item xs={12} className='box'>
                     <ExpandablePanel title={'Setting Up'} content={content + content}/>
                   </Grid>
                 </div>
 
-                <div className={'item-wrapper staff'}>
+                <div className={'item-wrapper staff expandable'}>
                   <Grid item xs={12} className='box'>
-                    <ExpandablePanel title={'Staff'} content={content}/>
+                    <ExpandablePanel icon={staffIcon} title={'Staff'} content={content}/>
                   </Grid>
                 </div>
 
