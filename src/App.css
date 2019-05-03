@@ -94,9 +94,23 @@
 }
 
 .selling-a-business {
-  height: 284px;
+  height: 200px;
 }
 
 .tile-icon {
   margin: 18px 18px 0px 12px;
+}
+
+.tile-title {
+  margin-left: 14px;
+  line-height: 62px;
+  width: 204px;
+  height: 62px;
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 28px;
+  font-weight: 600;
+  font-style: normal;
+  font-stretch: normal;
+  letter-spacing: 0.03em;
+  color: #232a3a;
 }
