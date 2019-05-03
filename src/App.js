@@ -47,7 +47,7 @@ const ExpansionPanel = withStyles({
 const PanelHeader = ({icon, title}) => {
   return(
     <div className={'panel-header-icon'}>
-      { typeof icon !== "undefined" ? <img  className={'tile-icon'} src={icon} alt="Topic Icon" /> : null}
+      { typeof icon !== "undefined" ? <div> <img className={'tile-icon'} src={icon} alt="Topic Icon" /> </div> : null }
       <div style={{padding:"20px"}}> <Typography variant={'h5'}> {title} </Typography> </div>
     </div>
   )
@@ -68,7 +68,15 @@ const ExpandablePanel = (props) => {
 
       <ExpansionPanel className={'hidden-on-desktop'} square={true} >
         <ExpansionPanelSummary expandIcon={<ExpandMoreIcon color={'inherit'}/>}>
-          <div> { typeof icon !== "undefined" ? <img src={icon} style={{verticalAlign: 'middle'}} alt="Topic Icon" /> : null} </div>
+          {
+            typeof icon !== "undefined" ?
+              <table id='icon-wrapper'>
+                <tr>
+                  <td> <img src={icon} alt="Topic Icon" /> </td>
+                </tr>
+              </table>
+            : null
+          }
           <div className={'tile-title'}> {title} </div>
         </ExpansionPanelSummary>
           <ExpansionPanelDetails> <Typography> {content} </Typography> </ExpansionPanelDetails>
@@ -107,7 +115,7 @@ function App() {
               <Grid container direction="column" spacing={16}>
 
                   <Grid item xs={12} className='box '>
-                    <ExpandablePanel type={'setting-up'} title={'Setting Up'} icon={SettingUpIcon} content={content + content}/>
+                    <ExpandablePanel type={'setting-up'} title={'Setting up'} icon={SettingUpIcon} content={content + content}/>
                   </Grid>
 
                   <Grid item xs={12} className='box'>
@@ -137,7 +145,7 @@ function App() {
                       </Grid>
 
                       <Grid item xs={12} md={12} lg={6} className='box' >
-                        <ExpandablePanel type={'selling-a-business'} title={'Selling A Business'} icon={SellingABusinessIcon} content={content + content}/>
+                        <ExpandablePanel type={'selling-a-business'} title={'Selling a business'} icon={SellingABusinessIcon} content={content + content}/>
                       </Grid>
                     </Grid>
                   </Grid>
