@@ -106,10 +106,7 @@
 }
 
 .tile-title {
-  white-space: nowrap;
   margin-left: 14px;
-  height: 58px;
-  line-height: 58px;
   font-family: 'Nunito Sans', sans-serif;
   font-size: 28px;
   font-weight: 500;

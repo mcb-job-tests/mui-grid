@@ -8,15 +8,15 @@ import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
 import MuiExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import Typography from '@material-ui/core/Typography';
 import { withStyles } from '@material-ui/core/styles'
-import staffIcon from './Icons/48px/Staff/black.png'
-import OperationsIcon from './Icons/48px/Operations/black.png'
-import SettingUpIcon from './Icons/48px/Setting up/spanners.png'
-import DealingWithDisputesIcon from './Icons/48px/Disputes/black.png'
-import TradingIcon from './Icons/48px/Trading/black.png'
-import DirectorsIcon from './Icons/48px/Directors/black.png'
-import FinanceIcon from './Icons/48px/Finance/black.png'
-import CompanyAdminIcon from './Icons/48px/Admin/black.png'
-import SellingABusinessIcon from './Icons/48px/Selling business/black.png'
+import staffIcon from './grid-icons/48px/Staff/black.png'
+import OperationsIcon from './grid-icons/48px/Operations/black.png'
+import SettingUpIcon from './grid-icons/48px/Setting up/spanners.png'
+import DealingWithDisputesIcon from './grid-icons/48px/Disputes/black.png'
+import TradingIcon from './grid-icons/48px/Trading/black.png'
+import DirectorsIcon from './grid-icons/48px/Directors/black.png'
+import FinanceIcon from './grid-icons/48px/Finance/black.png'
+import CompanyAdminIcon from './grid-icons/48px/Admin/black.png'
+import SellingABusinessIcon from './grid-icons/48px/Selling business/black.png'
 
 const panelStyle ={
   position: 'static',
