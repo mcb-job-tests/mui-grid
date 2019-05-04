@@ -46,8 +46,7 @@ const ExpansionPanel = withStyles({
 
 const PanelHeader = ({icon, title}) => {
   return(
-
-    <div className={'desktop-panel-header'}>
+    <div style={{position:'relative'}}>
       {
         typeof icon !== "undefined" ?
           <div>
@@ -74,17 +73,14 @@ const ExpandablePanel = (props) => {
       </div>
 
       <ExpansionPanel className={'mobile-only'} square={true} >
-        <ExpansionPanelSummary expandIcon={<ExpandMoreIcon/>}>
+        <ExpansionPanelSummary
+          expandIcon={<ExpandMoreIcon/>}
+          style={{paddingLeft: 12, paddingRight: 12}}
+        >
           <div>
             {
             typeof icon !== "undefined" ?
-              <table id='icon-wrapper' >
-                  <tbody>
-                    <tr>
-                      <td> <img src={icon} alt="Topic Icon" /> </td>
-                    </tr>
-                  </tbody>
-              </table>
+              <img src={icon} alt="Topic Icon" />
             : null
           }
           </div>
@@ -118,7 +114,7 @@ function App() {
       <MuiThemeProvider theme={theme}>
 
 
-        <div style={{margin:"8px", marginRight:"16px"}}>
+        <div style={{margin:"16px"}}>
           <Grid container spacing={16}>
 
             {/*First Column*/}
