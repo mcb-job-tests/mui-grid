@@ -24,7 +24,6 @@ const panelStyle ={
   WebkitBoxShadow: "0px 0px 3px 2px rgba(0,0,0,0.4)",
   MozBoxShadow: "0px 0px 3px 2px rgba(0,0,0,0.4)",
   boxShadow: "0px 0px 3px 2px rgba(0,0,0,0.4)",
-  margin:"4px",
   width:"100%",
 }
 
@@ -110,7 +109,7 @@ function App() {
     '            sit amet blandit leo lobortis eget. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex,\n' +
     '            sit amet blandit leo lobortis eget.'
   return (
-    <div className="App">
+    <div>
       <MuiThemeProvider theme={theme}>
 
 
