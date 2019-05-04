@@ -117,6 +117,10 @@
   padding-top: 26px;
 }
 
+.mobile-tile-content {
+  font-family: "Nunito Sans";
+}
+
 #wrapper {
   height:100%;
   width: 100%;

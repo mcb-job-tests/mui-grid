@@ -6,7 +6,6 @@ import MuiExpansionPanel from '@material-ui/core/ExpansionPanel';
 import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
 import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
 import MuiExpandMoreIcon from '@material-ui/icons/ExpandMore';
-import Typography from '@material-ui/core/Typography';
 import { withStyles } from '@material-ui/core/styles'
 import staffIcon from './grid-icons/48px/Staff/black.png'
 import OperationsIcon from './grid-icons/48px/Operations/black.png'
@@ -41,6 +40,7 @@ const Grid = withStyles({
 
 const ExpansionPanel = withStyles({
   root: panelStyle,
+  expanded:{marginTop:0}
 })(MuiExpansionPanel);
 
 const PanelHeader = ({icon, title}) => {
@@ -66,26 +66,26 @@ const ExpandablePanel = (props) => {
       <div className={'desktop-only item-wrapper '} >
         <PanelHeader icon={icon} title={title}/>
         <div className={type} style={{overflow:'hidden'}}>
-          <p style={{padding: '0px 12px 0px 12px'}}> {content} </p>
+          <p style={{padding: '0px 12px 0px 0px'}}> {content} </p>
         </div>
         <div style={{height:10, border: '2px solid purple'}}/>
       </div>
 
-      <ExpansionPanel className={'mobile-only'} square={true} >
+      <ExpansionPanel className={'mobile-only'} square={true}>
         <ExpansionPanelSummary
           expandIcon={<ExpandMoreIcon/>}
           style={{paddingLeft: 12, paddingRight: 12}}
         >
           <div>
-            {
-            typeof icon !== "undefined" ?
+            { typeof icon !== "undefined" ?
               <img src={icon} alt="Topic Icon" />
-            : null
-          }
+            : null }
           </div>
           <div className={'mobile-tile-title'}> {title} </div>
         </ExpansionPanelSummary>
-          <ExpansionPanelDetails> <Typography> {content} </Typography> </ExpansionPanelDetails>
+          <ExpansionPanelDetails style={{padding: '0px 6px 6px 75px'}}>
+            <div classNamr={'mobile-content'}> {content} </div>
+          </ExpansionPanelDetails>
       </ExpansionPanel>
 
     </div>
