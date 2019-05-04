@@ -46,9 +46,16 @@ const ExpansionPanel = withStyles({
 
 const PanelHeader = ({icon, title}) => {
   return(
-    <div className={'panel-header-icon'}>
-      { typeof icon !== "undefined" ? <div> <img className={'tile-icon'} src={icon} alt="Topic Icon" /> </div> : null }
-      <div style={{padding:"20px"}}> <Typography variant={'h5'}> {title} </Typography> </div>
+
+    <div className={'desktop-panel-header'}>
+      {
+        typeof icon !== "undefined" ?
+          <div>
+              <img className={'desktop-tile-icon'} src={icon} alt="Topic Icon" />
+          </div>
+        : null
+      }
+      <div className={'desktop-tile-title'}> {title} </div>
     </div>
   )
 }
@@ -58,26 +65,30 @@ const ExpandablePanel = (props) => {
   return (
     <div>
 
-      <div className={'hidden-on-mobile item-wrapper '} >
+      <div className={'desktop-only item-wrapper '} >
         <PanelHeader icon={icon} title={title}/>
         <div className={type} style={{overflow:'hidden'}}>
-          <p style={{padding: '0px 12px 0px 72px'}}> {content} </p>
+          <p style={{padding: '0px 12px 0px 12px'}}> {content} </p>
         </div>
         <div style={{height:10, border: '2px solid purple'}}/>
       </div>
 
-      <ExpansionPanel className={'hidden-on-desktop'} square={true} >
-        <ExpansionPanelSummary expandIcon={<ExpandMoreIcon color={'inherit'}/>}>
-          {
+      <ExpansionPanel className={'mobile-only'} square={true} >
+        <ExpansionPanelSummary expandIcon={<ExpandMoreIcon/>}>
+          <div>
+            {
             typeof icon !== "undefined" ?
-              <table id='icon-wrapper'>
-                <tr>
-                  <td> <img src={icon} alt="Topic Icon" /> </td>
-                </tr>
+              <table id='icon-wrapper' >
+                  <tbody>
+                    <tr>
+                      <td> <img src={icon} alt="Topic Icon" /> </td>
+                    </tr>
+                  </tbody>
               </table>
             : null
           }
-          <div className={'tile-title'}> {title} </div>
+          </div>
+          <div className={'mobile-tile-title'}> {title} </div>
         </ExpansionPanelSummary>
           <ExpansionPanelDetails> <Typography> {content} </Typography> </ExpansionPanelDetails>
       </ExpansionPanel>
@@ -122,7 +133,7 @@ function App() {
                     <ExpandablePanel type={'staff'} title={'Staff'} icon={staffIcon} content={content}/>
                   </Grid>
 
-                  <Grid item xs={12} className='box image-2 hidden-on-mobile' >
+                  <Grid item xs={12} className='box image-2 desktop-only' >
                     <div><p>IMAGE 2</p></div>
                   </Grid>
               </Grid>
@@ -138,7 +149,7 @@ function App() {
 
                   <Grid item xs={12} >
                     <Grid container spacing={16} >
-                      <Grid item xs={12} md={12} lg={6} className={'box hidden-on-mobile'} style={{height:284}}>
+                      <Grid item xs={12} md={12} lg={6} className={'box desktop-only'} style={{height:284}}>
                         <div style={{...panelStyle, height:284}}>
                           IMAGE 1
                         </div>

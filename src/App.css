@@ -61,7 +61,7 @@
 }
 
 @media only screen and (min-width: 600px) {
-  [class*="hidden-on-desktop"] {
+  [class*="mobile-only"] {
     display: none;
   }
 }
@@ -73,16 +73,14 @@
 }
 
 @media only screen and (max-width: 600px) {
-  [class*="hidden-on-mobile"] {
+  [class*="desktop-only"] {
     display: none;
   }
 }
 
-.panel-header-icon img {
+.desktop-panel-header img {
   float:left;
-  margin-right:10px;
   position: relative;
-  top:2px;
 }
 
 .setting-up {
@@ -101,12 +99,13 @@
   height: 250px;
 }
 
-.tile-icon {
-  margin: 18px 18px 0px 12px;
+.desktop-tile-icon {
+  margin: 21px 14px 0px 14px;
 }
 
-.tile-title {
+.mobile-tile-title, .desktop-tile-title {
   margin-left: 14px;
+  margin-top: 14px;
   font-family: 'Nunito Sans', sans-serif;
   font-size: 28px;
   font-weight: 500;
@@ -114,6 +113,10 @@
   font-stretch: normal;
   letter-spacing: 0.01em;
   color: #232a3a;
+}
+
+.desktop-tile-title {
+  /*padding-top: 28px;*/
 }
 
 #wrapper {
