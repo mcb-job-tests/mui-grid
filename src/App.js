@@ -75,12 +75,15 @@ const ExpandablePanel = (props) => {
   return (
     <div>
 
-      <div className={'desktop-only item-wrapper '} >
-        <PanelHeader icon={icon} title={title}/>
-        <div className={type} style={{overflow:'hidden', padding: '16px 12px 0px 0px'}}>
-          {content}
+      <div className={'desktop-only item-wrapper'} >
+        <div className={type} style={{position: 'relative', overflow:'hidden'}}>
+          <PanelHeader icon={icon} title={title}/>
+          <div style={{margin: '16px 12px 0px 72px'}}>
+            {content}
+          </div>
+          <div style={{height:10, position: 'absolute', width:'100%', clear:'both', bottom:0, border: '2px solid purple'}}/>
         </div>
-        <div style={{height:10, border: '2px solid purple'}}/>
+
       </div>
 
       <ExpansionPanel className={'mobile-only'} square={true}>
@@ -140,8 +143,10 @@ function App() {
                     <ExpandablePanel type={'staff'} title={'Staff'} icon={staffIcon} content={content}/>
                   </Grid>
 
-                  <Grid item xs={12} className='box image-2 desktop-only' >
-                    <div><p>IMAGE 2</p></div>
+                  <Grid item xs={12} className={'box desktop-only'}>
+                    <div className={'image-2'} style={panelStyle}>
+                      IMAGE 2
+                    </div>
                   </Grid>
               </Grid>
             </Grid>
@@ -157,7 +162,7 @@ function App() {
                   <Grid item xs={12} >
                     <Grid container spacing={16} >
                       <Grid item xs={12} md={12} lg={6} className={'box desktop-only'} style={{height:284}}>
-                        <div style={{...panelStyle, height:284}}>
+                        <div className={'image-1'} style={panelStyle}>
                           IMAGE 1
                         </div>
                       </Grid>
@@ -169,11 +174,11 @@ function App() {
                   </Grid>
 
                   <Grid item xs={12} className='box' >
-                    <ExpandablePanel title={'Dealing with disputes'} icon={DealingWithDisputesIcon} content={content}/>
+                    <ExpandablePanel type={'dealing-with-disputes'} title={'Dealing with disputes'} icon={DealingWithDisputesIcon} content={content}/>
                   </Grid>
 
                   <Grid item xs={12} className='box' >
-                    <ExpandablePanel title={'Trading'} icon={TradingIcon} content={content}/>
+                    <ExpandablePanel type={'trading'} title={'Trading'} icon={TradingIcon} content={content}/>
                   </Grid>
 
               </Grid>
@@ -183,13 +188,13 @@ function App() {
               <Grid item >
                 <Grid container direction='row' spacing={16}>
                   <Grid item xs={12} sm={12} md={12} lg={4} className='box'>
-                    <ExpandablePanel title={'Company admin'} icon={CompanyAdminIcon} content={content}/>
+                    <ExpandablePanel type={'company-admin'} title={'Company admin'} icon={CompanyAdminIcon} content={content}/>
                   </Grid>
                   <Grid item xs={12} sm={12} md={12} lg={4} className='box'>
-                    <ExpandablePanel title={'Directors'} icon={DirectorsIcon} content={content}/>
+                    <ExpandablePanel type={'directors'} title={'Directors'} icon={DirectorsIcon} content={content}/>
                   </Grid>
                   <Grid item xs={12} sm={12} md={12} lg={4} className='box'>
-                    <ExpandablePanel title={'Finance'} icon={FinanceIcon} content={content}/>
+                    <ExpandablePanel type={'finance'} title={'Finance'} icon={FinanceIcon} content={content}/>
                   </Grid>
                 </Grid>
               </Grid>

@@ -17,8 +17,20 @@
   background-color: aquamarine;
 }
 
-.selling-a-business, .image-1, .dealing-with-disputes {
-  height:150px;
+.setting-up {
+  height : 500px;
+}
+
+.staff {
+  height: 332px;
+}
+
+.image-1 {
+  height:284px;
+}
+
+.trading {
+  height: 276px
 }
 
 .selling-a-business, .dealing-with-disputes {
@@ -26,19 +38,30 @@
   background-color: white;
 }
 
-.image-1 {
-  background-color: #d5eaf1;
+.dealing-with-disputes {
+  height: 248px;
+}
+
+.operations {
+  height: 332px;
+}
+
+.selling-a-business {
+  height: 284px;
 }
 
 .image-2 {
-  height: 180px;
+  height: 323px;
   background-color: #d5eaf1;
+}
+
+.company-admin, .directors, .finance {
+  height:248px;
 }
 
 .bottom-row {
   border: 2px solid darkblue;
 }
-
 
 @media only screen and (max-width: 600px) {
   [class*="image"] {
@@ -75,22 +98,6 @@
   [class*="desktop-only"] {
     display: none;
   }
-}
-
-.setting-up {
-  height : 414px;
-}
-
-.operations {
-  height: 332px;
-}
-
-.selling-a-business {
-  height: 200px;
-}
-
-.staff {
-  height: 250px;
 }
 
 .desktop-tile-icon {
