@@ -95,7 +95,7 @@
 
 .desktop-tile-icon {
   float: left;
-  padding: 20px 12px 0px 12px;
+  margin: 20px 12px 0px 12px;
 }
 
 .mobile-tile-title, .desktop-tile-title {
@@ -118,7 +118,7 @@
 }
 
 .mobile-tile-content {
-  font-family: "Nunito Sans";
+  font-family: "Nunito Sans", sans-serif;
 }
 
 #wrapper {

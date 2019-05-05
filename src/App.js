@@ -3,7 +3,7 @@ import { createMuiTheme, MuiThemeProvider } from '@material-ui/core'
 import './App.css';
 import MuiGrid from '@material-ui/core/Grid';
 import MuiExpansionPanel from '@material-ui/core/ExpansionPanel';
-import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
+import MuiExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
 import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
 import MuiExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import { withStyles } from '@material-ui/core/styles'
@@ -43,9 +43,20 @@ const ExpansionPanel = withStyles({
   expanded:{marginTop:0}
 })(MuiExpansionPanel);
 
+const ExpansionPanelSummary = withStyles({
+  /* Styles applied to the children wrapper element. */
+  content: {
+    margin: "20px 0",
+    "&$expanded": {
+      marginBottom: "16px"
+    }
+  },
+  expanded: {}
+})(MuiExpansionPanelSummary);
+
 const PanelHeader = ({icon, title}) => {
   return(
-    <div style={{position:'relative'}}>
+    <div>
       {
         typeof icon !== "undefined" ?
           <div>
@@ -65,8 +76,8 @@ const ExpandablePanel = (props) => {
 
       <div className={'desktop-only item-wrapper '} >
         <PanelHeader icon={icon} title={title}/>
-        <div className={type} style={{overflow:'hidden'}}>
-          <p style={{padding: '0px 12px 0px 0px'}}> {content} </p>
+        <div className={type} style={{overflow:'hidden', padding: '16px 12px 0px 0px'}}>
+          {content}
         </div>
         <div style={{height:10, border: '2px solid purple'}}/>
       </div>
@@ -84,7 +95,7 @@ const ExpandablePanel = (props) => {
           <div className={'mobile-tile-title'}> {title} </div>
         </ExpansionPanelSummary>
           <ExpansionPanelDetails style={{padding: '0px 6px 6px 75px'}}>
-            <div classNamr={'mobile-content'}> {content} </div>
+            <div className={'mobile-content'}> {content} </div>
           </ExpansionPanelDetails>
       </ExpansionPanel>
 
