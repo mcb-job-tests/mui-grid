@@ -1,12 +1,13 @@
 import React from 'react';
-import { createMuiTheme, MuiThemeProvider } from '@material-ui/core'
+import createMuiTheme from '@material-ui/core/styles/createMuiTheme';
 import './App.css';
 import MuiGrid from '@material-ui/core/Grid';
 import MuiExpansionPanel from '@material-ui/core/ExpansionPanel';
 import MuiExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
 import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
 import MuiExpandMoreIcon from '@material-ui/icons/ExpandMore';
-import { withStyles } from '@material-ui/core/styles'
+import withStyles from '@material-ui/core/styles/withStyles';
+import MuiThemeProvider from '@material-ui/core/styles/MuiThemeProvider';
 import staffIcon from './grid-icons/48px/Staff/black.png'
 import OperationsIcon from './grid-icons/48px/Operations/black.png'
 import SettingUpIcon from './grid-icons/48px/Setting up/spanners.png'
