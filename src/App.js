@@ -106,7 +106,15 @@ const ExpandablePanel = (props) => {
   return (
     <div>
 
-      <div className={'desktop-only item-wrapper'} >
+      <div
+        className={'desktop-only item-wrapper'}
+        onMouseEnter={(e)=>{
+          console.log("onMouseEnter: ", title)
+        }}
+        onMouseLeave={(e)=>{
+          console.log("onMouseLeave: ", title)
+        }}
+      >
         <div className={type} style={{position:'relative', overflow:'hidden', borderRadius:'inherit'}}>
           <PanelHeader icon={icon} title={title}/>
           <div style={{margin: '16px 12px 0px 72px'}}>
