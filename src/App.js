@@ -18,6 +18,12 @@ import FinanceIcon from './grid-icons/48px/Finance/black.png'
 import CompanyAdminIcon from './grid-icons/48px/Admin/black.png'
 import SellingABusinessIcon from './grid-icons/48px/Selling business/black.png'
 
+import Icon from '@material-ui/core/Icon';
+import MuiDesktopIconButton from '@material-ui/core/IconButton';
+import DeleteIcon from '@material-ui/icons/Delete';
+import MuiExpandMoreRounded from '@material-ui/icons/ExpandMoreRounded';
+import {ExpandMoreRounded} from "@material-ui/icons";
+
 const panelStyle ={
   position: 'static',
   borderRadius: "5px",
@@ -26,6 +32,18 @@ const panelStyle ={
   boxShadow: "0px 0px 3px 2px rgba(0,0,0,0.4)",
   width:"100%",
 }
+
+const DesktopExpandMoreRounded = withStyles({
+  colorPrimary: {
+    color: 'purple'
+  }
+})(MuiExpandMoreRounded)
+
+const DesktopIconButton = withStyles({
+  root: {
+    color: '#232a3a'
+  }
+})(MuiDesktopIconButton);
 
 const ExpandMoreIcon = withStyles({
   root: {
@@ -70,21 +88,32 @@ const PanelHeader = ({icon, title}) => {
   )
 }
 
+const ExpandMoreButton = () => {
+  return(
+    <div style={{width:'100%', height:0}}>
+      {/*<div style={{display:'block', margin: '0 auto'}}>*/}
+        <DesktopIconButton aria-label="Expand More" style={{position: 'relative', top:-40, left:'45%', backgroundColor: 'cyan', border: '1px black solid'}}>
+          <DesktopExpandMoreRounded />
+        </DesktopIconButton>
+      {/*</div>*/}
+    </div>
+  )
+}
+
 const ExpandablePanel = (props) => {
   const {type, icon, title, content} = props;
   return (
     <div>
 
       <div className={'desktop-only item-wrapper'} >
-        <div className={type} style={{position: 'relative', overflow:'hidden'}}>
+        <div className={type} style={{position: 'relative',overflow:'hidden'}}>
           <PanelHeader icon={icon} title={title}/>
           <div style={{margin: '16px 12px 0px 72px'}}>
             {content}
           </div>
-          <div style={{height:10, position: 'absolute', width:'100%', clear:'both', bottom:0, border: '2px solid purple'}}/>
         </div>
-
       </div>
+      <ExpandMoreButton style={{position:'relative'}}/>
 
       <ExpansionPanel className={'mobile-only'} square={true}>
         <ExpansionPanelSummary
@@ -159,7 +188,6 @@ function App() {
                   <Grid item xs={12} className='box '>
                     <ExpandablePanel type={'setting-up'} title={'Setting up'} icon={SettingUpIcon} content={content + content}/>
                   </Grid>
-
                   <Grid item xs={12} className='box'>
                     <ExpandablePanel type={'staff'} title={'Staff'} icon={staffIcon} content={content}/>
                   </Grid>
