@@ -116,8 +116,29 @@ function App() {
     lg: 800,
     xl: 1200,
   };
+  const spacing = { unit: 20 }
   const theme = createMuiTheme({
     breakpoints: { values: breakpointValues },
+    overrides: {
+      MuiGrid: {
+        container: {
+          //global spacing override
+          margin: -spacing.unit / 2,
+            width: "calc(100% + ".concat(spacing.unit, "px)"),
+          '& > $item': {
+            padding: spacing.unit / 2
+          },
+          // finer grained spacing override
+          /*'&$spacing-xs-16': {
+            margin: -spacing.unit / 2,
+            width: "calc(100% + ".concat(spacing.unit, "px)"),
+            '& > $item': {
+              padding: spacing.unit / 2
+            }
+          }*/
+        }
+      }
+    }
   });
 
   const content = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex,\n' +
@@ -129,11 +150,11 @@ function App() {
 
 
         <div style={{margin:"16px"}}>
-          <Grid container spacing={16}>
+          <Grid container >
 
             {/*First Column*/}
             <Grid item xs={12} md={6}>
-              <Grid container direction="column" spacing={16}>
+              <Grid container direction="column">
 
                   <Grid item xs={12} className='box '>
                     <ExpandablePanel type={'setting-up'} title={'Setting up'} icon={SettingUpIcon} content={content + content}/>
@@ -153,14 +174,14 @@ function App() {
 
             {/*Second Column*/}
             <Grid item xs={12} md={6} >
-              <Grid container direction="column" spacing={16}>
+              <Grid container direction="column">
 
                   <Grid item xs={12} className='box' >
                     <ExpandablePanel type={'operations'} title={'Operations'} icon={OperationsIcon} content={content + content}/>
                   </Grid>
 
                   <Grid item xs={12} >
-                    <Grid container spacing={16} >
+                    <Grid container>
                       <Grid item xs={12} md={12} lg={6} className={'box desktop-only'} style={{height:284}}>
                         <div className={'image-1'} style={panelStyle}>
                           IMAGE 1
@@ -186,7 +207,7 @@ function App() {
 
             {/*Bottom Row*/}
               <Grid item >
-                <Grid container direction='row' spacing={16}>
+                <Grid container direction='row'>
                   <Grid item xs={12} sm={12} md={12} lg={4} className='box'>
                     <ExpandablePanel type={'company-admin'} title={'Company admin'} icon={CompanyAdminIcon} content={content}/>
                   </Grid>
