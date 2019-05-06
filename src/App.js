@@ -35,13 +35,14 @@ const panelStyle ={
 
 const DesktopExpandMoreRounded = withStyles({
   colorPrimary: {
-    color: 'purple'
+    color: 'white'
   }
 })(MuiExpandMoreRounded)
 
 const DesktopIconButton = withStyles({
   root: {
-    color: '#232a3a'
+    color: 'white',
+    padding:6
   }
 })(MuiDesktopIconButton);
 
@@ -90,10 +91,10 @@ const PanelHeader = ({icon, title}) => {
 
 const ExpandMoreButton = () => {
   return(
-    <div style={{width:'100%', height:0}}>
+    <div style={{width:'100%', height:0, textAlign: 'center'}}>
       {/*<div style={{display:'block', margin: '0 auto'}}>*/}
-        <DesktopIconButton aria-label="Expand More" style={{position: 'relative', top:-40, left:'45%', backgroundColor: 'cyan', border: '1px black solid'}}>
-          <DesktopExpandMoreRounded />
+        <DesktopIconButton aria-label="Expand More" style={{position: 'relative', top:-22, opacity: 0.6, backgroundColor: '#232a3a'}}>
+          <DesktopExpandMoreRounded color={'primary'}/>
         </DesktopIconButton>
       {/*</div>*/}
     </div>
@@ -106,14 +107,16 @@ const ExpandablePanel = (props) => {
     <div>
 
       <div className={'desktop-only item-wrapper'} >
-        <div className={type} style={{position: 'relative',overflow:'hidden'}}>
+        <div className={type} style={{position:'relative', overflow:'hidden'}}>
           <PanelHeader icon={icon} title={title}/>
           <div style={{margin: '16px 12px 0px 72px'}}>
             {content}
           </div>
+          <div style={{position:'absolute', width:'100%', height:22, bottom: 0, backgroundColor: 'white'}}/>
         </div>
+        <ExpandMoreButton style={{position:'relative'}}/>
       </div>
-      <ExpandMoreButton style={{position:'relative'}}/>
+
 
       <ExpansionPanel className={'mobile-only'} square={true}>
         <ExpansionPanelSummary
