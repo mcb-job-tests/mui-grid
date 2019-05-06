@@ -107,12 +107,19 @@ const ExpandablePanel = (props) => {
     <div>
 
       <div className={'desktop-only item-wrapper'} >
-        <div className={type} style={{position:'relative', overflow:'hidden'}}>
+        <div className={type} style={{position:'relative', overflow:'hidden', borderRadius:'inherit'}}>
           <PanelHeader icon={icon} title={title}/>
           <div style={{margin: '16px 12px 0px 72px'}}>
             {content}
           </div>
-          <div style={{position:'absolute', width:'100%', height:22, bottom: 0, backgroundColor: 'white'}}/>
+          <div style={{
+            position:'absolute',
+            width:'100%',
+            height:22,
+            bottom: 0,
+            backgroundColor: 'white',
+            borderRadius: '0px 0px 5px 5px'
+          }}/>
         </div>
         <ExpandMoreButton style={{position:'relative'}}/>
       </div>
